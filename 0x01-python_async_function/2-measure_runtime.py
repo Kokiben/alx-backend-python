@@ -3,7 +3,6 @@
 a function."""
 from time import perf_counter
 import asyncio
-
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
