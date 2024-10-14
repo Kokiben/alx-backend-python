@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Contains a function that spawns task_wait_random n times with a
-specified delay between each call."""
+"""Contains a function that spawns Tasks multiple times with a
+specified maximum delay between each call."""
 import asyncio
 from typing import List
 
 task_wait_random = __import__('3-tasks').task_wait_random
 
+
 def task_wait_n(n: int, max_delay: int) -> List[float]:
-    """Spawns task_wait_random n times with a specified delay
-    between each call.
+    """Creates n tasks using task_wait_random with a specified maximum delay.
     
     Args:
-        n: The number of times to spawn task_wait_random.
-        max_delay: The maximum delay for each random wait.
+        n: The total number of tasks to create.
+        max_delay: The maximum delay for each task.
         
     Returns:
-        A list of delays in ascending order.
+        A list containing the delays in ascending order.
     """
-    tasks = [task_wait_random(max_delay) for _ in range(n)]  # Create tasks
-    return [asyncio.run(task) for task in asyncio.as_completed(tasks)]  # Wait for all tasks to complete
+    wait_tasks = [task_wait_random(max_delay) for _ in range(n)]  # Generate the tasks
+    return [asyncio.run(wait_task) for wait_task in asyncio.as_completed(wait_tasks)]  # Await and return the completed tasks
