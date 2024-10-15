@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Defines a coroutine that pauses for a random duration and returns that time."""
+"""Contains a coroutine that delays a certain amount of time and returns it"""
 
 import asyncio
 import random
@@ -7,14 +7,12 @@ import random
 
 async def wait_random(max_delay: int = 10) -> float:
     """
-    Generates a random wait time between 0 and max_delay seconds and pauses for that duration.
-    
+    Returns a random float between 0 and max_delay
     Args:
-        max_delay: The maximum number of seconds to wait.
-        
+        max_delay: The maximum delay to return
     Returns:
-        The generated random float representing the wait time.
+        A random float between 0 and max_delay
     """
-    wait_time = random.uniform(0, max_delay)
-    await asyncio.sleep(wait_time)
-    return wait_time
+    rand = random.uniform(0, max_delay)
+    await asyncio.sleep(rand)
+    return rand
