@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Contains a coroutine creates a delay for a random duration and returns."""
+"""Print an asynchronous coroutine that takes in an integer argument ."""
 
 import asyncio
 import random
