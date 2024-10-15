@@ -15,4 +15,4 @@ def task_wait_random(max_delay: int) -> asyncio.Task:
     Returns:
         An asyncio.Task that wraps the wait_random coroutine.
     """
-    return asyncio.create_tk(wait_random(max_delay))
+    return asyncio.create_task(wait_random(max_delay))
