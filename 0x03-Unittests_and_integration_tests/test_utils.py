@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Parametize a unit test
+unit test
 """
 
 import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
+
 
 class TestAccessNestedMap(unittest.TestCase):
     @parameterized.expand([
@@ -53,8 +54,8 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+        with patch.object(TestClass, 'a_method', return_value=42) as mock_meth:
             test_instance = TestClass()
             self.assertEqual(test_instance.a_property, 42)
             self.assertEqual(test_instance.a_property, 42)
-            mock_method.assert_called_once()
+            mock_meth.assert_called_once()
