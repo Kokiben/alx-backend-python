@@ -8,8 +8,8 @@ from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 from fixtures import org_payload, repos_payload, expected_repos, apache2_repos
 
+
 class TestGithubOrgClient(unittest.TestCase):
-    
     @parameterized.expand([
         ("google",),
         ("abc",),
@@ -41,7 +41,7 @@ class TestGithubOrgClient(unittest.TestCase):
         },
     ]
 )
-class TestIntegrationGithubOrgClient(unittest.TestCase):    
+class TestIntegrationGithubOrgClient(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Start patching requests.get
